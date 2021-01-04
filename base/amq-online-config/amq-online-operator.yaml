@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: amq-online-operator
+  namespace: argocd
+spec:
+  project: quay-config
+  source:
+    repoURL: https://github.com/rahmed-rh/amq-online-gitops.git
+    targetRevision: HEAD
+    path: base/amq-online-operator
+  syncPolicy:
+    automated:
+      prune: true
+# changes that are made to the live cluster will trigger automated sync
+      selfHeal: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: amq-online-infra

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: "Quay Enterprise project for containers images registry"
+    openshift.io/display-name: "Quay Enterprise"
+  name: quay-enterprise

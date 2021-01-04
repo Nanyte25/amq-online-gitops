@@ -1,0 +1,8 @@
+### Secret files ###
+quay-enterprise-config-secret-extra-ca-certs-v4.yaml
+quay-enterprise-config-secret-v4.yaml
+
+# All config file
+config*.yaml
+
+*.crt

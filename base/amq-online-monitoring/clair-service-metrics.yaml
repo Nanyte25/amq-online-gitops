@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    name: quay-operator
+  name: clair-service-metrics
+  namespace: quay-enterprise
+spec:
+  endpoints:
+  - interval: 25s
+    scheme: http
+#    targetPort: 6061
+    port: clair-health
+#    path: /health
+  selector:
+    matchLabels:
+        app: quay-operator
+        quay-enterprise-component: clair

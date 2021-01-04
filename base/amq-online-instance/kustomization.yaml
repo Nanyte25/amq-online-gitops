@@ -1,0 +1,51 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+generatorOptions:
+ disableNameSuffixHash: true
+
+namespace: quay-enterprise
+
+secretGenerator:
+  # generate needed Secrets
+- name: quay-config-app
+  literals:
+  # username = quayconfig
+  - config-app-password=passw0rd
+  type: Opaque
+  # Incase password will change as per environment
+  # env:
+- name: quay-credentials
+  literals:
+   - superuser-username=quay
+   - superuser-password=passw0rd
+   - superuser-email=quay@redhat.com
+  type: Opaque
+  # Incase password will change as per environment
+  # env:
+- name: db-quay-credentials
+  literals:
+   - database-username=quay
+   - database-password=passw0rd
+   - database-root-password= passw0rd
+   - database-name=quay-enterprise
+  type: Opaque
+  # Incase password will change as per environment
+  # env:
+- name: db-clair-credentials
+  literals:
+   - database-username=clair
+   - database-password=passw0rd
+   - database-root-password= passw0rd
+   - database-name=clair
+  type: Opaque
+  # Incase password will change as per environment
+  # env:
+- name: redis-credentials
+  literals:
+   - password=passw0rd
+  type: Opaque
+  # Incase password will change as per environment
+  # env:
+resources:
+- default-quayecosystem.yaml

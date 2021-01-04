@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: "Red Hat Integration - AMQ Online provides messaging as a managed service on OpenShift"
+    openshift.io/display-name: "AMQ Online"
+  name: amq-online-infra

@@ -25,7 +25,7 @@
 
 
 .*Background:*
-In this blog entry we cover deploying the AMQ Online as well as a Tenant namespace using GitOps, specifically in this case with ArgoCD. This blog post is going to assume some familiarity with AMQ Online and ArgoCD, and will concentrate on the more challenging aspects of using GitOps to deploy everything.
+In this blog entry we cover deploying the AMQ Online as well as other common tasks like Tenant namespace using GitOps, specifically in this case with ArgoCD. This blog post is going to assume some familiarity with AMQ Online and ArgoCD, and will concentrate on the more challenging aspects of using GitOps to deploy everything.
 
 :sectnums:
 

@@ -4,7 +4,7 @@ metadata:
   name: amq-online-operator
   namespace: argocd
 spec:
-  project: quay-config
+  project: amq-online
   source:
     repoURL: https://github.com/rahmed-rh/amq-online-gitops.git
     targetRevision: HEAD

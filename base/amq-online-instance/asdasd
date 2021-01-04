@@ -1,0 +1,15 @@
+apiVersion: admin.enmasse.io/v1beta1
+kind: AuthenticationService
+metadata:
+  name: standard-authservice
+spec:
+  type: standard
+  standard:
+    replicas: 2
+    datasource:
+      type: postgresql
+      host: database.example.com
+      port: 5431
+      database: auth
+      credentialsSecret:
+        name: db-creds

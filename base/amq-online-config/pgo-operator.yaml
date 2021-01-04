@@ -1,16 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: amq-online-infra
+  name: pgo-operator
   namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   project: amq-online
   source:
     repoURL: https://github.com/rahmed-rh/amq-online-gitops.git
     targetRevision: HEAD
-    path: base/amq-online-config
+    path: base/postgres-operator
   syncPolicy:
     automated:
       prune: true
@@ -18,4 +16,4 @@ spec:
       selfHeal: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: amq-online-infra
+    namespace: pgo

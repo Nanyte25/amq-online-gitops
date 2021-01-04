@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+generatorOptions:
+ disableNameSuffixHash: true
+
+configMapGenerator:
+  - name: pgo-config
+    files:
+      - conf/postgres-operator/pgo.yaml
+
+secretGenerator:
+  - name: pgo-backrest-repo-config
+    files:
+      - pgo-backrest-repo/config
+      - pgo-backrest-repo/sshd_config
+    type: Opaque
+
+
+namespace: pgo
+
+resources:
+  - namespace.yaml
+  - postgres-operatorgroup.yaml
+  - postgres-subscription.yaml
+  - pgorole-pgoadmin-secret.yaml
+  - pgouser-admin-secret.yaml
+  - postgres-operator-service.yaml

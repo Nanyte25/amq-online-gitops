@@ -12,4 +12,4 @@ resources:
   - cluster-role-binding.yaml
   - amq-online-operatorgroup.yaml
   - amq-online-subscription.yaml
- # - quay-subscription-infra.yaml
+ # - amq-online-subscription-infra.yaml

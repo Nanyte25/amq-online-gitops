@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: "Crunchy Data PostgreSQL Operator"
+    openshift.io/display-name: "PostgreSQL Operator"
+  name: pgo

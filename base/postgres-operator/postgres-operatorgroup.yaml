@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    olm.providedAPIs: Pgcluster.v1.crunchydata.com,Pgreplica.v1.crunchydata.com,Pgpolicy.v1.crunchydata.com,Pgtask.v1.crunchydata.com
+  generateName: crunchy-postgres-
+  name: crunchy-postgres-operator
+spec:
+  targetNamespaces:
+  - pgo

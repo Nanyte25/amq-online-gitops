@@ -15,6 +15,8 @@ spec:
   destinations:
   - namespace: argocd
     server: https://kubernetes.default.svc
+  - namespace: pgo
+    server: https://kubernetes.default.svc
   - namespace: amq-online-infra
     server: https://kubernetes.default.svc
   - namespace: openshift-monitoring

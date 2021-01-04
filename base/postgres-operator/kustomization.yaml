@@ -12,8 +12,8 @@ configMapGenerator:
 secretGenerator:
   - name: pgo-backrest-repo-config
     files:
-      - pgo-backrest-repo/config
-      - pgo-backrest-repo/sshd_config
+      - https://raw.githubusercontent.com/CrunchyData/postgres-operator/v4.5.1/installers/ansible/roles/pgo-operator/files/pgo-backrest-repo/config
+      - https://raw.githubusercontent.com/CrunchyData/postgres-operator/v4.5.1/installers/ansible/roles/pgo-operator/files/pgo-backrest-repo/sshd_config
     type: Opaque
 
 

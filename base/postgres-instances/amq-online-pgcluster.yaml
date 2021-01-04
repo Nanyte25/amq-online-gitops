@@ -6,43 +6,51 @@ metadata:
   labels:
     autofail: "true"
     crunchy-pgbadger: "false"
-    crunchy-pgha-scope: quay
+    crunchy-pgha-scope: amq-online
     crunchy-postgres-exporter: "false"
-    deployment-name: quay
-    name: quay
-    pg-cluster: quay
+    deployment-name: amq-online
+    name: amq-online
+    pg-cluster: amq-online
     pg-pod-anti-affinity: ""
     pgo-backrest: "true"
-    pgo-version: 4.5.0
+    pgo-version: 4.5.1
     pgouser: admin
-  name: quay
+  name: amq-online
   namespace: pgo
 spec:
   BackrestStorage:
-    accessmode: ReadWriteMany
+    accessmode: ReadWriteOnce
     matchLabels: ""
     name: ""
     size: 1G
     storageclass: ""
-    storagetype: create
+    storagetype: dynamic
     supplementalgroups: ""
   PrimaryStorage:
-    accessmode: ReadWriteMany
+    accessmode: ReadWriteOnce
     matchLabels: ""
-    name: quay
+    name: amq-online
     size: 1G
     storageclass: ""
-    storagetype: create
+    storagetype: dynamic
     supplementalgroups: ""
   ReplicaStorage:
-    accessmode: ReadWriteMany
+    accessmode: ReadWriteOnce
     matchLabels: ""
     name: ""
     size: 1G
     storageclass: ""
-    storagetype: create
+    storagetype: dynamic
     supplementalgroups: ""
   annotations:
+    global:
+      favorite: ""
+    backrest:
+      chair: ""
+    pgBouncer:
+      pool: ""
+    postgres:
+      elephant: ""
   backrestLimits: {}
   backrestRepoPath: ""
   backrestResources:
@@ -54,17 +62,19 @@ spec:
   backrestS3VerifyTLS: ""
   ccpimage: crunchy-postgres-ha
   ccpimageprefix: registry.developers.crunchydata.com/crunchydata
-  ccpimagetag: centos7-12.4-4.5.0
-  clustername: quay
+  ccpimagetag: centos7-12.5-4.5.1
+  clustername: amq-online
   customconfig: ""
-  database: quay
+  database: amq-online
   exporterport: "9187"
   limits: {}
-  name: quay
+  name: amq-online
   namespace: pgo
   pgBouncer:
     limits: {}
     replicas: 0
+    resources:
+      memory: "0"
   pgDataSource:
     restoreFrom: ""
     restoreOpts: ""
@@ -76,9 +86,9 @@ spec:
     pgBouncer: preferred
   policies: ""
   port: "5432"
-  primarysecretname: quay-quayuser-secret
+  primarysecretname: amq-online-primaryuser-secret
   replicas: "0"
-  rootsecretname: quay-postgres-secret
+  rootsecretname: amq-online-postgres-secret
   shutdown: false
   standby: false
   tablespaceMounts: {}
@@ -87,9 +97,9 @@ spec:
     replicationTLSSecret: ""
     tlsSecret: ""
   tlsOnly: false
-  user: quay
+  user: amq-online
   userlabels:
     crunchy-postgres-exporter: "false"
     pg-pod-anti-affinity: ""
-    pgo-version: 4.5.0
-  usersecretname: quay-quayuser-secret
+    pgo-version: 4.5.1
+  usersecretname: amq-online-amq-online-secret

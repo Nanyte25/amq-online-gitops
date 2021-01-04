@@ -2,26 +2,26 @@ apiVersion: crunchydata.com/v1
 kind: Pgreplica
 metadata:
   labels:
-    name: amq-online-rpl1
-    pg-cluster: amq-online
+    name:  dev-amq-online-rpl1
+    pg-cluster:  dev-amq-online
     pgouser: admin
   name: amq-online-rpl1
   namespace: pgo
 spec:
-  clustername: amq-online
-  name: amq-online-rpl1
+  clustername:  dev-amq-online
+  name:  dev-amq-online-rpl1
   namespace: pgo
   replicastorage:
-    accessmode: ReadWriteMany
+    accessmode: ReadWriteOnce
     matchLabels: ""
-    name: amq-online-rpl1
-    size: 1G
+    name:  dev-amq-online-rpl1
+    size: 2G
     storageclass: ""
-    storagetype: create
+    storagetype: dynamic
     supplementalgroups: ""
   userlabels:
     NodeLabelKey: ""
     NodeLabelValue: ""
     crunchy-postgres-exporter: "false"
     pg-pod-anti-affinity: ""
-    pgo-version: 4.5.0
+    pgo-version: 4.5.1

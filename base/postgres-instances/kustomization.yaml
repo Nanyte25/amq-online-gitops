@@ -6,21 +6,6 @@ generatorOptions:
 
 namespace: pgo
 
-secretGenerator:
-  # generate needed Secrets
-- name: amq-online-postgres-secret
-  literals:
-  - username=postgres
-  - password=passw0rd
-  type: Opaque
-
-- name: amq-online-user-secret
-  literals:
-  - username=user
-  - password=passw0rd
-  type: Opaque
-
 resources:
-- amq-online-backrest-repo-config.yaml
 - amq-online-pgcluster.yaml
-- amq-online-rpl1-pgreplica.yaml
+

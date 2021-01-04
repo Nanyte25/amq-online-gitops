@@ -1,6 +1,0 @@
-PGO_CMD=oc ./kubectl/client-setup.sh
-
-export PGO_APISERVER_URL="https://$(
-  oc get service postgres-operator \
-    -o jsonpath="{.status.loadBalancer.ingress[*]['ip','hostname']}"
-):8443"

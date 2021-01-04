@@ -1,5 +1,49 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+
+generatorOptions:
+ disableNameSuffixHash: true
+ 
+namePrefix: dev-
+commonLabels:
+  environment: development
+
+namespace: pgo
+
 bases:
 - ../../../base/postgres-instances/
+
+resources:
+- amq-online-backrest-repo-config.yaml
+- amq-online-rpl1-pgreplica.yaml
+
+secretGenerator:
+  # generate needed Secrets
+- name: amq-online-root-secret
+  literals:
+  - username=postgres
+  - password=passw0rd
+  type: Opaque
+
+- name: amq-online-primaryuser-secret
+  literals:
+  - username=user
+  - password=passw0rd
+  type: Opaque
+
+patchesJson6902:
+  - target:
+      group: crunchydata.com
+      version: v1
+      namespace: pgo
+      kind: Pgcluster
+      name: amq-online
+    path: dev-cluster.json
+  - target:
+      group: crunchydata.com
+      version: v1
+      namespace: pgo
+      kind: Pgcluster
+      name: amq-online
+    path: bouncer.json

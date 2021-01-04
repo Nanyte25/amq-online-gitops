@@ -1,0 +1,18 @@
+[
+    { "op": "replace", "path": "/metadata/annotations/current-primary", "value": "dev-amq-online" },
+    { "op": "replace", "path": "/metadata/labels/crunchy-pgha-scope", "value": "dev-amq-online" },
+    { "op": "replace", "path": "/metadata/labels/deployment-name", "value": "dev-amq-online" },
+    { "op": "replace", "path": "/metadata/labels/name", "value": "dev-amq-online" },
+    { "op": "replace", "path": "/metadata/labels/pg-cluster", "value": "dev-amq-online" },
+    { "op": "replace", "path": "/metadata/name", "value": "dev-amq-online" },
+
+    { "op": "replace", "path": "/spec/PrimaryStorage/name", "value": "dev-amq-online" },
+    { "op": "replace", "path": "/spec/clustername", "value": "dev-amq-online" },
+    { "op": "replace", "path": "/spec/PrimaryStorage/name", "value": "dev-amq-online" },
+    { "op": "replace", "path": "/spec/clustername", "value": "dev-amq-online" },
+    { "op": "replace", "path": "/spec/database", "value": "dev-amq-online" },
+    { "op": "replace", "path": "/spec/name", "value": "dev-amq-online" },
+    { "op": "replace", "path": "/spec/primarysecretname", "value": "dev-amq-online-primaryuser-secret" },
+    { "op": "replace", "path": "/spec/rootsecretname", "value": "dev-amq-online-root-secret" },
+    { "op": "replace", "path": "/spec/usersecretname", "value": "dev-amq-online-primaryuser-secret" }
+]

@@ -3,7 +3,7 @@ kind: Secret
 type: Opaque
 metadata:
   labels:
-    pg-cluster: amq-online
+    pg-cluster: dev-amq-online
     pgo-backrest-repo: "true"
   name: amq-online-backrest-repo-config
   namespace: pgo

@@ -1,0 +1,25 @@
+apiVersion: enmasse.io/v1beta1
+kind: AddressSpace
+metadata:
+  labels:
+    addressSpaceType: standard
+    type: address-space
+  name: standard-products-catalog
+spec:
+  type: standard
+  plan: standard-small
+  authenticationService:
+    name: standard-authservice
+  endpoints:
+  - name: messaging
+    service: messaging
+    expose:
+      type: route
+      routeServicePort: amqps
+      routeTlsTermination: passthrough
+      routeHost: messaging-2.apps.cluster-15de.15de.sandbox509.opentlc.com
+    cert:
+      provider: openshift
+    exports:
+    - kind: ConfigMap
+      name: standard-products-catalog-cm

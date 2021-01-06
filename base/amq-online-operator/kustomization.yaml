@@ -12,4 +12,7 @@ resources:
   - cluster-role-binding.yaml
   - amq-online-operatorgroup.yaml
   - amq-online-subscription.yaml
+  - example-plans
+  - example-roles
+  - example-authservices/standard-authservice.yaml
  # - amq-online-subscription-infra.yaml

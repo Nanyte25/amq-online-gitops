@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/description: "Microservice to maintain the Products Catalog"
+    openshift.io/display-name: "Products Catalog"
+  name: products-catalog

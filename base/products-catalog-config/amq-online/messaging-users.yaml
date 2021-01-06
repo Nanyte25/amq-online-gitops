@@ -1,0 +1,22 @@
+apiVersion: user.enmasse.io/v1beta1
+kind: MessagingUser
+metadata:
+  name: standard-demospace.demo-user
+  namespace: amqp-demo
+spec:
+  username: demo-user
+  authentication:
+    type: password
+    password: cGFzc3dvcmQ= # Base64 encode of 'password'
+  authorization:
+    - addresses:
+        - '*'
+      operations:
+        - recv
+        - send
+    - addresses: []
+      operations:
+        - manage
+    - addresses: []
+      operations:
+        - view

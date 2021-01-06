@@ -6,7 +6,7 @@ metadata:
 spec:
   project: quay-config
   source:
-    repoURL: https://github.com/Alliander/ot-quay-gitops.git
+    repoURL: https://github.com/rahmed-rh/amq-online-gitops.git
     targetRevision: HEAD
     path: base/quay-monitoring
   syncPolicy:

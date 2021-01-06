@@ -1,14 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: amq-online-operator
+  name: products-catalog
   namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   project: amq-online
   source:
-    repoURL: https://github.com/Alliander/ot-quay-gitops.git
+    repoURL: https://github.com/rahmed-rh/amq-online-gitops.git
     targetRevision: HEAD
-    path: overlays/amq-online-instance/development
+    path: base/products-catalog-config
   syncPolicy:
     automated:
       prune: true
@@ -16,4 +18,4 @@ spec:
       selfHeal: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: amq-sample-tenant
+    namespace: products-catalog

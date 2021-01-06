@@ -9,7 +9,8 @@ namespace: amq-online-infra
 
 resources:
   - namespace.yaml
-  - cluster-role-binding.yaml
+  - amq-online-cluster-role.yaml
+  - amq-online-cluster-role-binding.yaml
   - amq-online-operatorgroup.yaml
   - amq-online-subscription.yaml
   - example-plans/*.yaml

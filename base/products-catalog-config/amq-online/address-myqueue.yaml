@@ -1,0 +1,8 @@
+apiVersion: enmasse.io/v1beta1
+kind: Address
+metadata:
+  name: standard-products-catalog.myqueue
+spec:
+  address: myqueue
+  plan: standard-small-queue
+  type: queue

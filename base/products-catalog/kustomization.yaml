@@ -12,3 +12,5 @@ resources:
   - amq-online/role.yaml
   - amq-online/role-binding.yaml
   - amq-online/messaging-users.yaml
+  - amq-online/address-space-standard-products-catalog.yaml
+  - amq-online/address-myqueue.yaml

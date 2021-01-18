@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/rahmed-rh/amq-online-gitops.git
     targetRevision: HEAD
-    path: base/products-catalog-config
+    path: base/products-catalog
   syncPolicy:
     automated:
       prune: true

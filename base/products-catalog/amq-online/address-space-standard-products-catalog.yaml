@@ -17,7 +17,7 @@ spec:
       type: route
       routeServicePort: amqps
       routeTlsTermination: passthrough
-      routeHost: messaging-2.apps.cluster-15de.15de.sandbox509.opentlc.com
+      routeHost: messaging-2.belux-5c19b80d0b42bf06f50309d5c8a080e8-0000.eu-de.containers.appdomain.cloud
     cert:
       provider: openshift
     exports:

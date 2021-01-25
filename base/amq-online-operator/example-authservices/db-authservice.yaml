@@ -6,7 +6,7 @@ spec:
   type: standard
   standard:
     storage:
-      claimName: standard-authservice
+      claimName: db-authservice
       deleteClaim: true
       size: 1Gi
       type: persistent-claim

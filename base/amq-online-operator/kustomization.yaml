@@ -6,6 +6,8 @@ generatorOptions:
 
 namespace: amq-online-infra
 
+commonAnnotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 resources:
 - namespace.yaml

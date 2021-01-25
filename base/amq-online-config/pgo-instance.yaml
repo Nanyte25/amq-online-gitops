@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pgo-operator
+  namespace: argocd
+spec:
+  project: amq-online
+  source:
+    repoURL: https://github.com/rahmed-rh/amq-online-gitops.git
+    targetRevision: HEAD
+    path: overlays/postgres-instances/development
+  syncPolicy:
+    automated:
+      prune: true
+# changes that are made to the live cluster will trigger automated sync
+      selfHeal: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: pgo

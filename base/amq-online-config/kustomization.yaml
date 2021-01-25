@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - amq-online-operator.yaml
   - pgo-operator.yaml
+  - pgo-instance.yaml
 #  - amq-online-instance.yaml
 #  - amq-online-monitoring.yaml

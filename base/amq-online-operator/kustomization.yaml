@@ -2,18 +2,53 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 generatorOptions:
- disableNameSuffixHash: true
+  disableNameSuffixHash: true
 
 namespace: amq-online-infra
 
 
 resources:
-  - namespace.yaml
-  - amq-online-cluster-role.yaml
-  - amq-online-cluster-role-binding.yaml
-  - amq-online-operatorgroup.yaml
-  - amq-online-subscription.yaml
-  - example-plans/*.yaml
-  - example-roles/*.yaml
-  - example-authservices/standard-authservice.yaml
- # - amq-online-subscription-infra.yaml
+- namespace.yaml
+- amq-online-cluster-role.yaml
+- amq-online-cluster-role-binding.yaml
+- amq-online-operatorgroup.yaml
+- amq-online-subscription.yaml
+- example-authservices/standard-authservice.yaml
+# added by $kustomize edit add resource example-roles/*.yaml
+- example-roles/020-ClusterRole-schema.yaml
+- example-roles/020-ClusterRole-service-admin.yaml
+- example-roles/020-ClusterRole-tenant-edit.yaml
+- example-roles/020-ClusterRole-tenant-view.yaml
+- example-roles/030-ClusterRoleBinding-schema.yaml
+# added by $kustomize edit add resource example-plans/*.yaml
+- example-plans/020-AddressPlan-brokered-deadletter.yaml
+- example-plans/020-AddressPlan-brokered-queue.yaml
+- example-plans/020-AddressPlan-brokered-topic.yaml
+- example-plans/020-AddressPlan-standard-deadletter.yaml
+- example-plans/020-AddressPlan-standard-large-anycast.yaml
+- example-plans/020-AddressPlan-standard-large-multicast.yaml
+- example-plans/020-AddressPlan-standard-large-partitioned-queue.yaml
+- example-plans/020-AddressPlan-standard-large-queue.yaml
+- example-plans/020-AddressPlan-standard-large-subscription.yaml
+- example-plans/020-AddressPlan-standard-large-topic.yaml
+- example-plans/020-AddressPlan-standard-medium-anycast.yaml
+- example-plans/020-AddressPlan-standard-medium-multicast.yaml
+- example-plans/020-AddressPlan-standard-medium-partitioned-queue.yaml
+- example-plans/020-AddressPlan-standard-medium-queue.yaml
+- example-plans/020-AddressPlan-standard-medium-subscription.yaml
+- example-plans/020-AddressPlan-standard-medium-topic.yaml
+- example-plans/020-AddressPlan-standard-small-anycast.yaml
+- example-plans/020-AddressPlan-standard-small-multicast.yaml
+- example-plans/020-AddressPlan-standard-small-partitioned-queue.yaml
+- example-plans/020-AddressPlan-standard-small-queue.yaml
+- example-plans/020-AddressPlan-standard-small-subscription.yaml
+- example-plans/020-AddressPlan-standard-small-topic.yaml
+- example-plans/020-AddressPlan-standard-xlarge-queue.yaml
+- example-plans/020-AddressPlan-standard-xlarge-topic.yaml
+- example-plans/020-AddressSpacePlan-brokered-single-broker.yaml
+- example-plans/020-AddressSpacePlan-standard-medium.yaml
+- example-plans/020-AddressSpacePlan-standard-small.yaml
+- example-plans/020-AddressSpacePlan-standard-unlimited.yaml
+- example-plans/020-BrokeredInfraConfig-default.yaml
+- example-plans/020-StandardInfraConfig-default-minimal.yaml
+- example-plans/020-StandardInfraConfig-default.yaml

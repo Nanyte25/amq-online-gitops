@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: enmasse.io:schema
+  name: enmasse.io:schema-cluster-role
   labels:
     app: enmasse
     rbac.authorization.k8s.io/aggregate-to-admin: "true"

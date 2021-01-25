@@ -9,6 +9,13 @@ namespace: amq-online-infra
 commonAnnotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
+secretGenerator:
+- name: db-creds
+  literals:
+   - database-user=user
+   - database-password=passw0rd
+  type: Opaque
+
 resources:
 - namespace.yaml
 - amq-online-cluster-role.yaml

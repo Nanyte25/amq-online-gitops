@@ -1,0 +1,19 @@
+apiVersion: admin.enmasse.io/v1beta1
+kind: AuthenticationService
+metadata:
+  name: standard-authservice
+spec:
+  type: standard
+  standard:
+    storage:
+      claimName: standard-authservice
+      deleteClaim: true
+      size: 1Gi
+      type: persistent-claim
+    datasource:
+      type: postgresql
+      host: dev-amq-online.pgo.svc.cluster.local
+      port: 5432
+      database: authdb
+      credentialsSecret:
+        name: db-creds

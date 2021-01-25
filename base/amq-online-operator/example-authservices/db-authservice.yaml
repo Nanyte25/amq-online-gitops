@@ -1,7 +1,7 @@
 apiVersion: admin.enmasse.io/v1beta1
 kind: AuthenticationService
 metadata:
-  name: standard-authservice
+  name: db-authservice
 spec:
   type: standard
   standard:

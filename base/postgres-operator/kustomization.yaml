@@ -25,4 +25,5 @@ resources:
   - pgorole-pgoadmin-secret.yaml
   - pgouser-admin-secret.yaml
   - postgres-operator-service.yaml
-  - pgo-clusterrolebinding.yaml
+  - pgo-default-clusterrolebinding.yaml
+  - pgo-pg-clusterrolebinding.yaml

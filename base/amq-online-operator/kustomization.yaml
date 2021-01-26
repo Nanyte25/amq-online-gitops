@@ -9,15 +9,6 @@ namespace: amq-online-infra
 commonAnnotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
-# A user needs to be created on postgresql
-# pgo create user --username=admin dev-amq-online --password passw0rd -n pgo
-secretGenerator:
-- name: db-creds
-  literals:
-   - database-user=admin
-   - database-password=passw0rd
-  type: Opaque
-
 resources:
 - namespace.yaml
 - amq-online-cluster-role.yaml

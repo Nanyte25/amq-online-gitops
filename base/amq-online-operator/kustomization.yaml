@@ -12,7 +12,7 @@ commonAnnotations:
 secretGenerator:
 - name: db-creds
   literals:
-   - database-user=user
+   - database-user=admin
    - database-password=passw0rd
   type: Opaque
 

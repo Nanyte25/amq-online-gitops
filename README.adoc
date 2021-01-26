@@ -31,19 +31,20 @@ In this blog entry we cover deploying the AMQ Online as well as other common tas
 
 == Define ArgoCD AppProject and Application
 
-We defined project for AMQ Online and for the operator we defined an application (app)
+We defined project for AMQ Online which will cover amq-online "infra" components
+Which are the following;
+
+. AMQ Online operator
+. Postgres operator
+. Postgres Instance (will be used for AMQ Online AuthService)
+. AMQ Online Monitoring
 
 Refer to following file for full details
 
-
 * xref:argocd-amq-online-config/amq-online-infra.yaml[argocd-amq-online-config/amq-online-infra.yaml]
+* xref:argocd-amq-online-config/amq-online-project.yaml[argocd-amq-online-config/amq-online-project.yaml]
 
-link:argocd-amq-online-config/amq-online-infra.yaml
-
-
-.argocd-amq-online-config/amq-online-project.yaml
-
-
+Apply the following to define the ArgoCD AppProject and Application
 [source,bash]
 ----
 oc apply -f argocd-amq-online-config

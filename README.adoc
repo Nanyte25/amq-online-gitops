@@ -11,7 +11,7 @@
 .*Goals*
 
 . Deploy AMQ Online Operator
-. Create a Sample Tenant enviroment 
+. Create a Sample Tenant enviroment
 . Storage deployment OCP4 and specifically AMQ
 . AMQ authentication service does not seems to be working with an (external) database
 . Monitor AMQ Online Health
@@ -33,101 +33,20 @@ In this blog entry we cover deploying the AMQ Online as well as other common tas
 
 We defined project for AMQ Online and for the operator we defined an application (app)
 
-.argocd-amq-online-config/amq-online-infra.yaml
-[source,yaml]
-----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: amq-online-infra
-  namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
-spec:
-  project: amq-online
-  source:
-    repoURL: https://github.com/rahmed-rh/amq-online-gitops
-    targetRevision: HEAD
-    path: base/amq-online-config
-  syncPolicy:
-    automated:
-      prune: true
-# changes that are made to the live cluster will trigger automated sync
-      selfHeal: true
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: amq-online-infra
-----
+Refer to following file for full details
+
+
+* xref:argocd-amq-online-config/amq-online-infra.yaml[argocd-amq-online-config/amq-online-infra.yaml]
+
+link:argocd-amq-online-config/amq-online-infra.yaml
+
 
 .argocd-amq-online-config/amq-online-project.yaml
-[source,yaml]
-----
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: amq-online
-  namespace: argocd
-  # Finalizer that ensures that project is not deleted until it is not referenced by any application
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  description: project for managing AMQ Online installation and configurations
-  # Allow manifests to deploy from any Git repos
-  sourceRepos:
-  - '*'
-  # Only permit applications to deploy to the quay-enterprise namespace in the same cluster
-  destinations:
-  - namespace: argocd
-    server: https://kubernetes.default.svc
-  - namespace: amq-online-infra
-    server: https://kubernetes.default.svc
-  - namespace: openshift-monitoring
-    server: https://kubernetes.default.svc
-  # Allow all cluster-scoped resources to be created
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
-  # Allow all namespaced-scoped resources to be created, except for NetworkPolicy
-  namespaceResourceBlacklist:
-  - group: ''
-    kind: NetworkPolicy
-  roles:
-  # A role which provides sync privileges within own project
-  # sync privileges to a CI system
-  - name: sync-role
-    description: sync-role for cluster-config project
-    policies:
-    - p, proj:cluster-config:sync-role, applications, sync, cluster-config/*, allow
-    groups:
-    - argocdusers
-  # A role which provides full privileges within own project
-  - name: admin-role
-    description: admin-role for cluster-config project
-    policies:
-    - p, proj:cluster-config:admin-role, applications, *, cluster-config/*, allow
-    groups:
-    - argocdadmins
-----
+
 
 [source,bash]
 ----
 oc apply -f argocd-amq-online-config
 ----
-== Deploy AMQ Online Operator using ArgoCD 
-Deploying AMQ Online Operator is pretty straight forward. we will use the Operator Lifecycle Manager (OLM) , with OLM you define the Subscription and OperatorGroup and asynchronously OLM will install and deploy the operator. 
-
-.base/infrastructure/user-worload-monitoring/user-monitoring-config.yaml
-[source,yaml]
-----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: cluster-monitoring-config
-  namespace: openshift-monitoring
-data:
-  config.yaml: |
-    techPreviewUserWorkload:
-      enabled: true
-----
-
-https://github.com/prometheus-operator/prometheus-operator/blob/566b18b2c9bf62ff3558804a69de5e1127ce8171/Documentation/design.md#servicemonitor
+== Deploy AMQ Online Operator using ArgoCD
+Deploying AMQ Online Operator is pretty straight forward. we will use the Operator Lifecycle Manager (OLM) , with OLM you define the Subscription and OperatorGroup and asynchronously OLM will install and deploy the operator.

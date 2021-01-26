@@ -37,7 +37,7 @@ Which are the following;
 . AMQ Online operator
 . Postgres operator
 . Postgres Instance (will be used for AMQ Online AuthService)
-. AMQ Online Monitoring
+. AMQ Online Monitoring (**Pending)
 
 Refer to following file for full details
 
@@ -49,5 +49,18 @@ Apply the following to define the ArgoCD AppProject and Application
 ----
 oc apply -f argocd-amq-online-config
 ----
-== Deploy AMQ Online Operator using ArgoCD
-Deploying AMQ Online Operator is pretty straight forward. we will use the Operator Lifecycle Manager (OLM) , with OLM you define the Subscription and OperatorGroup and asynchronously OLM will install and deploy the operator.
+
+== Configure Postgres DB
+
+After Postgres operator deployment you need to do configure the pgo cli
+
+[source,bash]
+----
+./base/postgres-operator/sh/post-install.sh
+----
+
+then after the Postgres instance (dev-amq-online cluster) deployment, create a user that will be used by AMQ Online
+[source,bash]
+----
+pgo create user --username=admin dev-amq-online --password passw0rd -n pgo
+----

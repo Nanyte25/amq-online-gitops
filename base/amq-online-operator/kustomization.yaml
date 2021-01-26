@@ -25,7 +25,6 @@ resources:
 - amq-online-operatorgroup.yaml
 - amq-online-subscription.yaml
 - example-authservices/standard-authservice.yaml
-- example-authservices/db-authservice.yaml
 # added by $kustomize edit add resource example-roles/*.yaml
 - example-roles/020-ClusterRole-schema.yaml
 - example-roles/020-ClusterRole-service-admin.yaml

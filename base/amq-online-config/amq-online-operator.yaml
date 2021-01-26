@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/rahmed-rh/amq-online-gitops.git
     targetRevision: HEAD
-    path: base/amq-online-operator
+    path: overlays/amq-online-operator/development
   syncPolicy:
     automated:
       prune: true

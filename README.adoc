@@ -10,11 +10,8 @@
 
 .*Goals*
 
-. Deploy AMQ Online Operator
-. Create a Sample Tenant enviroment
-. Storage deployment OCP4 and specifically AMQ
-. AMQ authentication service does not seems to be working with an (external) database
-. Monitor AMQ Online Health
+. GitOps way for managing a production ready AMQ Online environment.
+. AMQ Online storage backup and migration
 
 
 

@@ -52,7 +52,7 @@ oc apply -f argocd-amq-online-config
 
 == Configure Postgres DB
 
-After Postgres operator deployment you need to do configure the pgo cli
+After Postgres operator deployment you need to configure the https://access.crunchydata.com/documentation/postgres-operator/4.5.1/pgo-client/[pgo cli], you can do that by executing the following
 
 [source,bash]
 ----

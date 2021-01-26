@@ -14,6 +14,6 @@ spec:
       type: postgresql
       host: dev-amq-online.pgo.svc.cluster.local
       port: 5432
-      database: authdb
+      database: dev-amq-online
       credentialsSecret:
         name: db-creds

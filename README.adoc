@@ -13,8 +13,6 @@
 . GitOps way for managing a production ready AMQ Online environment.
 . AMQ Online storage backup and migration
 
-
-
 .*References:*
 ** https://enmasse.io/documentation/0.33.0/openshift.html[]
 ** https://access.redhat.com/documentation/en-us/red_hat_amq/7.7/html/installing_and_managing_amq_online_on_openshift/index[]
